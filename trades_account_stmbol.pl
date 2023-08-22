@@ -80,6 +80,8 @@ while (<$fh>) {
     
 }
 
+close $fh;
+
 # Print account ans symbol.
 foreach my $a (sort keys %trades) {
     
