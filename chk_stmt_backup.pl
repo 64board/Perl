@@ -5,6 +5,7 @@
 # 2023.08.22 First version.
 # 2023.08.23 Version that checks folder dates to detect missing or extra directories,
 # also uses current year and month in case they are not provided.
+# 2023.08.25 Sort directories before iterating through them.
  
 use strict;
 use warnings;
@@ -178,7 +179,7 @@ my @dates = ();
 # Hash with dates as keays and 1 as values.
 my %dates_calc = map { $_ => 1 } generate_dates($year, $month);
 
-while (readdir $dh) {
+foreach (sort readdir $dh) {
 
     my $directory = $_;
 
